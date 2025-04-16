@@ -38,7 +38,6 @@ project "GLEW"
         optimize "On"
         runtime "Release"
         
-    filter "configurations:Distribution"
         defines { "NDEBUG" }
         optimize "On"
         runtime "Release"

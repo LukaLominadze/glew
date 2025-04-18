@@ -27,6 +27,18 @@ project "GLEW"
     	systemversion "latest"
         links { "GL" }
 
+        prebuildcommands {
+            "mkdir -p $(GLEW_DEST)/bin",
+            "mkdir -p $(GLEW_DEST)/include/GL"
+        }
+        
+        postbuildcommands {
+            "cp -r include/* $(GLEW_DEST)/include/GL/",
+            "cp lib/libGLEW.a $(GLEW_DEST)/lib/",
+            "cp bin/glewinfo $(GLEW_DEST)/bin/",
+            "cp bin/visualinfo $(GLEW_DEST)/bin/"
+        }
+        
     -- Define different build configurations
     filter "configurations:Debug"
         defines { "DEBUG" }
@@ -37,21 +49,5 @@ project "GLEW"
         defines { "NDEBUG" }
         optimize "On"
         runtime "Release"
-        
-        defines { "NDEBUG" }
-        optimize "On"
-        runtime "Release"
-    
-    -- Define installation targets
-    prebuildcommands {
-        "mkdir -p $(GLEW_DEST)/bin",
-        "mkdir -p $(GLEW_DEST)/include/GL"
-    }
 
-    postbuildcommands {
-        "cp -r include/* $(GLEW_DEST)/include/GL/",
-        "cp lib/libGLEW.a $(GLEW_DEST)/lib/",
-        "cp bin/glewinfo $(GLEW_DEST)/bin/",
-        "cp bin/visualinfo $(GLEW_DEST)/bin/"
-    }
 

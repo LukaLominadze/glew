@@ -5,10 +5,10 @@ project "GLEW"
     staticruntime "off"
     
     -- Define installation paths
-    targetdir ("$(GLEW_DEST)/lib")
-    objdir ("$(GLEW_DEST)/obj")
+    targetdir ("%{prj.location}/lib")
+    objdir ("%{prj.location}/obj")
     includedirs { "include" }
-    libdirs { "$(GLEW_DEST)/lib" }
+    libdirs { "%{prj.location}/lib" }
 
     -- Source files
     files {

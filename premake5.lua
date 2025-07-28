@@ -5,8 +5,8 @@ project "GLEW"
     staticruntime "off"
     
     -- Define installation paths
-    targetdir ("%{prj.location}/lib")
-    objdir ("%{prj.location}/obj")
+    targetdir ("%{wks.location}/bin/" ..outputdir.. "/%{prj.name}")
+    objdir ("%{wks.location}/bin-int/" ..outputdir.. "/%{prj.name}")
     includedirs { "include" }
     libdirs { "%{prj.location}/lib" }
 

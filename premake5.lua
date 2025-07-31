@@ -32,13 +32,6 @@ project "GLEW"
             "mkdir -p $(GLEW_DEST)/include/GL"
         }
         
-        postbuildcommands {
-            "cp -r include/* $(GLEW_DEST)/include/GL/",
-            "cp lib/libGLEW.a $(GLEW_DEST)/lib/",
-            "cp bin/glewinfo $(GLEW_DEST)/bin/",
-            "cp bin/visualinfo $(GLEW_DEST)/bin/"
-        }
-        
     -- Define different build configurations
     filter "configurations:Debug"
         defines { "DEBUG" }
